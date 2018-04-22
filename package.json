@@ -21,7 +21,7 @@
     "Angular1.x",
     "Seed"
   ],
-  "author": "j_bleach",
+  "author": "jianwenjuan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jiwenjiang/angularSeed"
@@ -33,7 +33,8 @@
     "angular-ui-router": "^0.4.2",
     "bootstrap": "^3.3.6",
     "md5": "^2.1.0",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "d3":"^3.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",

@@ -4,6 +4,7 @@ import b_collapse from './collapse'
 import template from './template.html';
 import style from './home.less';
 
+
 class HomeController {
     constructor() {
         this.style = style;
@@ -61,6 +62,8 @@ class HomeController {
             }
             event.cancelBubble = true;
         };
+
+        
         
     }
 }
