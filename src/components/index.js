@@ -1,7 +1,7 @@
-import Home from './home';
 import login from './login/login';
+import fiber from './fiber-connection/fiber-connection.js';
 
 export default angular.module('components', [
-    Home,
     login,
+    fiber,
 ]).name;

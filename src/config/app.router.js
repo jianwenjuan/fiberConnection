@@ -8,8 +8,8 @@ export default function routing($stateProvider, $locationProvider, $urlRouterPro
             url: '/login',
             template: '<login></login>'
         })
-        .state('home', {
-            url: '/home',
-            template: '<home></home>'
+        .state('fiber', {
+            url: '/fiber',
+            template: '<fiber-connection></fiber-connection>'
         })
 }

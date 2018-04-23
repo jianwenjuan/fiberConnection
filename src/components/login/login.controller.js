@@ -5,7 +5,7 @@ class loginCtrl {
     }
     login() {
         this.showlogin=true;
-        this.$state.go('home');
+        this.$state.go('fiber');
     }
 }
 loginCtrl.$inject = ['$state'];
