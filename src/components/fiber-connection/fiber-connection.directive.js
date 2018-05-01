@@ -12,9 +12,50 @@ const fiberConnectionDirective = () => {
 		link:($scope)=>{
 
 			const fiberGraph = new FiberGraph();
-			const container = document.getElementById('fiber-container');
+			const container = 'fiber-container';
 
-			fiberGraph.init(container);
+			const data = {
+				boards:[
+					{   
+						id:1,
+						x:50,
+						y:50,
+						shape:'triangle',
+						name:'otv'
+					},
+					{
+						id:2,
+						x:80,
+						y:90,
+						shape:'rect',
+						name:'rfg'
+					},
+					{
+						id:3,
+						x:100,
+						y:70,
+						shape:'rhomb',
+						name:'wer'
+					},
+				],
+				links:[
+					{
+						src:1,
+						snk:2
+					},
+					{
+						src:3,
+						snk:2
+					},
+					{
+						src:1,
+						snk:3
+					},
+				]
+			}
+			
+
+			fiberGraph.init(container,data);
 
 		}
 	}

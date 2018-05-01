@@ -43,6 +43,9 @@ module.exports = function () {
 
             ],
             loaders: [
+                
+                // { test: require.resolve("jquery"), loader: "expose-loader?$" },
+                
                 {
                     test: /\.js$/, loaders: ['babel', 'eslint-loader'], exclude: /node_modules/
                 },

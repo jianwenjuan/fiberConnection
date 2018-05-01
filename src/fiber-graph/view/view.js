@@ -1,7 +1,7 @@
 import d3 from 'd3';
 
 class View{
-	construct(container,dataCenter){
+	constructor(container,dataCenter){
 
 		this.container = container;
 		this.dataCenter = dataCenter || {};
@@ -17,10 +17,10 @@ class View{
 
 
 	addCanvas(name, w, h){
-		const width = w || this.container.width();
-		const height = h || this.container.height();
+		const width = w || document.getElementById(this.container).clientWidth;
+		const height = h || document.getElementById(this.container).clientHeight;
 
-		const canvas = d3.select(this.container[0]).append('canvas')
+		const canvas = d3.select(`#${this.container}`).append('canvas')
 		.attr('name',name)
 		.attr('width',width)
 		.attr('height',height);

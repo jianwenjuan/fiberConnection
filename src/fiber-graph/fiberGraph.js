@@ -4,7 +4,7 @@ import DataCenter from './data-center/dater-center.js';
 import Handler from './handler/handler.js';
 
 class FiberGraph {
-	construct(){
+	constructor(){
 
 		this.view = null;
 		this.dataCenter = null;

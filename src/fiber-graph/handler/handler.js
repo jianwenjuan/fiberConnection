@@ -1,5 +1,5 @@
 class Handler{
-	construct(){
+	constructor(){
 
 	}
 
