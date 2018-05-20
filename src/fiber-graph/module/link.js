@@ -1,6 +1,8 @@
 
-class Link {
-	constructor(){
+
+class Link{
+	constructor(options){
+	
 
 	}
 

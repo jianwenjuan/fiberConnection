@@ -1,18 +1,53 @@
-import Board from '../module/board.js';
+import Rect from './rect.js';
 
-class Rhomb extends Board{
-	constructor(){
-		super();
+class Rhomb extends Rect{
+	constructor(options){
+		super(options);
 
-	}
-
-	render(){
 
 	}
 
 
-	getPosition(){
-		
+	getRect(){
+		return [
+			{
+				x: this.x - (this.w / 4),
+				y: this.y - (this.h / 2)
+			},
+			{
+				x: this.x + (this.w / 4),
+				y: this.y - (this.h / 2)
+			},
+			{
+				x: this.x + (this.w / 2),
+				y: this.y - (this.h / 4)
+			},
+			{
+				x: this.x + (this.w / 2),
+				y: this.y + (this.h / 4)
+			},
+			{
+				x: this.x + (this.w / 4),
+				y: this.y + (this.h / 2)
+			}
+			,
+			{
+				x: this.x - (this.w / 4),
+				y: this.y + (this.h / 2)
+			}
+			,
+			{
+				x: this.x - (this.w / 2),
+				y: this.y + (this.h / 4)
+			}
+			,
+			{
+				x: this.x - (this.w / 2),
+				y: this.y - (this.h / 4)
+			}
+
+		]
+
 	}
 }
 

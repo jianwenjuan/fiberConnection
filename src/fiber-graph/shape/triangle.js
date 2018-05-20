@@ -1,20 +1,29 @@
-import Board from '../module/board.js';
+import Rect from './rect.js';
 
-class Triangle extends Board{
-	constructor(){
-		super();
+class Triangle extends Rect{
+	constructor(options){
+		super(options);
 
 
 	}
 
-	render(){
+	getRect(){
+		return [
+			{
+				x: this.x - (this.w / 2),
+				y: this.y - (this.h / 2)
+			},
+			{
+				x: this.x + (this.w / 2),
+				y: this.y
+			},
+			{
+				x: this.x - (this.w / 2),
+				y: this.y + (this.h / 2)
+			}
 
-	}
+		]
 
-
-	getPosition(){
-		// const w = this.style.w;
-		
 	}
 }
 

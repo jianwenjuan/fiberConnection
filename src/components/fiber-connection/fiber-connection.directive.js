@@ -25,8 +25,8 @@ const fiberConnectionDirective = () => {
 					},
 					{
 						id:2,
-						x:80,
-						y:90,
+						x:90,
+						y:156,
 						shape:'rect',
 						name:'rfg'
 					},
@@ -35,6 +35,46 @@ const fiberConnectionDirective = () => {
 						x:100,
 						y:70,
 						shape:'rhomb',
+						name:'wer'
+					},
+					
+					{
+						id:8,
+						x:200,
+						y:200,
+						shape:'triangle',
+						name:'wer'
+					},
+					
+					{
+						id:4,
+						x:300,
+						y:456,
+						shape:'rect',
+						name:'wer'
+					},
+					
+					{
+						id:5,
+						x:600,
+						y:82,
+						shape:'triangle',
+						name:'wer'
+					},
+					
+					{
+						id:6,
+						x:176,
+						y:80,
+						shape:'rect',
+						name:'wer'
+					},
+					
+					{
+						id:7,
+						x:458,
+						y:400,
+						shape:'triangle',
 						name:'wer'
 					},
 				],

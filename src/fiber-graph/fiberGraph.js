@@ -16,11 +16,13 @@ class FiberGraph {
 
 		this.dataCenter = new DataCenter(options);
 
+		this.dataCenter.initData()
+
 		this.view = new View(container, this.dataCenter);
 
 		this.view.initArea();
 
-
+		this.view.render();
 	}
 }
 

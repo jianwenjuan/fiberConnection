@@ -1,7 +1,7 @@
 class Style {
-	constructor(type,options){
+	constructor(type,name){
 		this.type = type;
-		this.options = options;
+		this.name = name;
 
 	}
 
@@ -10,7 +10,7 @@ class Style {
 		let style = {};
 		if (this.type === 'board') {
 			const boardStyle = this.stylePoor().board;
-			style = boardStyle[this.options.name];
+			style = boardStyle[this.name];
 
 		}
 
@@ -23,7 +23,7 @@ class Style {
 		const styleEnum = {
 			'board':{
 				'otv':{
-						'w':30,
+						'w':34,
 						'h':50,
 						'color':'red',
 					},

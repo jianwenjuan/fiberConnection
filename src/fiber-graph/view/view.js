@@ -1,5 +1,6 @@
 import d3 from 'd3';
 
+
 class View{
 	constructor(container,dataCenter){
 
@@ -29,8 +30,28 @@ class View{
 			this.areas[name] = {
 				'name':name,
 				'canvas':canvas,
-				'context':canvas.node().getContext('other context')
+				'context':canvas.node().getContext('2d')
 			}
+		}
+
+	}
+
+
+	render() {
+
+
+		const boards = this.dataCenter.boards;
+
+		if (boards.length > 0) {
+			boards.forEach((item)=>{
+
+				item.render(
+					{
+						context: this.areas['static'].context
+					}
+				)
+
+			});
 		}
 
 	}
