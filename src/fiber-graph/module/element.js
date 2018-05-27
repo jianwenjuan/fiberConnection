@@ -5,25 +5,32 @@ import Rhomb from '../shape/rhomb.js';
 import Triangle from '../shape/triangle.js';
 
 class Element {
-	constructor(options){
-		this.attr = options;
-		this.shape = this.getShape(options.shape);
+	constructor(attr,style,shape){
+		this.attr = attr;
+		this.style = style;
+		this.shape = this.getShape(shape);
 
 	}
+
+	render(){
+
+	}
+
+
 
 
 	getShape(shape){
 		switch(shape){
 			case 'triangle':
-				return new Triangle(this.attr);			
+				return new Triangle(this.attr,this.style);			
 			case 'line':
-				return new Line(this.attr);		
+				return new Line(this.attr,this.style);		
 			case 'rect':
-				return new Rect(this.attr);	
+				return new Rect(this.attr,this.style);	
 			case 'rhomb':
-				return new Rhomb(this.attr);
+				return new Rhomb(this.attr,this.style);
 			default:
-				return new Rect(this.attr);
+				return new Rect(this.attr,this.style);
 		}
 
 	}

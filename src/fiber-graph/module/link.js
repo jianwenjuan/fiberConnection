@@ -1,13 +1,14 @@
+import Element from './element.js';
 
-
-class Link{
-	constructor(options){
-	
+class Link extends Element{
+	constructor(attr,style,shape){
+		super(attr,style,shape);
 
 	}
 
-	render(){
-
+	render(options){
+		const link =  this;
+		this.shape.render(options,link);
 	}
 }
 export default Link;

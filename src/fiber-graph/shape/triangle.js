@@ -1,8 +1,8 @@
 import Rect from './rect.js';
 
 class Triangle extends Rect{
-	constructor(options){
-		super(options);
+	constructor(options,style){
+		super(options,style);
 
 
 	}

@@ -12,6 +12,11 @@ class Style {
 			const boardStyle = this.stylePoor().board;
 			style = boardStyle[this.name];
 
+		} 
+
+		if (this.type === 'link') {
+			const linkStyle = this.stylePoor().link;
+			style = linkStyle;
 		}
 
 		return style;
@@ -37,6 +42,10 @@ class Style {
 						'h':50,
 						'color':'pink',
 					}
+			},
+			'link':{
+				color: '#ccc',
+				lineWidth: '1px',
 			}
 		}
 

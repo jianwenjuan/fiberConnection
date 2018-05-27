@@ -91,6 +91,35 @@ const fiberConnectionDirective = () => {
 						src:1,
 						snk:3
 					},
+					{
+						src:1,
+						snk:4
+					},
+						{
+						src:2,
+						snk:5
+					},
+						{
+						src:4,
+						snk:6
+					},
+						{
+						src:2,
+						snk:7
+					},
+						{
+						src:6,
+						snk:3
+					},
+						{
+						src:8,
+						snk:3
+					},
+						{
+						src:8,
+						snk:1
+					},
+
 				]
 			}
 			

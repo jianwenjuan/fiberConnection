@@ -38,6 +38,19 @@ class View{
 
 
 	render() {
+		const links  = this.dataCenter.links;
+
+		if (links.length > 0) {
+			links.forEach((item)=>{
+
+					item.render(
+					{
+						context: this.areas['static'].context
+					}
+				)
+
+			})
+		}
 
 
 		const boards = this.dataCenter.boards;
@@ -53,6 +66,8 @@ class View{
 
 			});
 		}
+
+
 
 	}
 }

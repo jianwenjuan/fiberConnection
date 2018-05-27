@@ -1,13 +1,13 @@
 
 class Rect {
-	constructor(options){
+	constructor(options,style){
 		this.x = options.x;
 		this.y = options.y;
 
-		this.w = options.style.w;
-		this.h = options.style.h;
+		this.w = style.w;
+		this.h = style.h;
 
-		this.color = options.style.color;
+		this.color = style.color;
 
 
 

@@ -2,19 +2,18 @@
 import Node from './node.js';
 
 class Board extends Node{
-	constructor(options){
-		super(options);
-		this.name = options.name;
-		this.x = options.x;
-		this.y = options.y;
-
-
+	constructor(attr,style,shape){
+		super(attr,style,shape);
+		this.name = attr.name;
+		this.x = attr.x;
+		this.y = attr.y;
 	}
 
 	render(options){
 		this.shape.render(options);
-
 	}
+
+
 
 
 }
