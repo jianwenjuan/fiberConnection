@@ -124,7 +124,9 @@ const fiberConnectionDirective = () => {
 			}
 			
 
-			fiberGraph.init(container,data);
+			fiberGraph.init(container,{});
+
+			fiberGraph.loadData(data);
 
 		}
 	}

@@ -1,5 +1,8 @@
 class Handler{
-	constructor(){
+	constructor(container,datacenter,view){
+		this.container = container;
+		this.datacenter = datacenter;
+		this.view = view;
 
 	}
 

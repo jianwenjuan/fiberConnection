@@ -52,7 +52,6 @@ class View{
 			})
 		}
 
-
 		const boards = this.dataCenter.boards;
 
 		if (boards.length > 0) {
@@ -63,12 +62,8 @@ class View{
 						context: this.areas['static'].context
 					}
 				)
-
 			});
 		}
-
-
-
 	}
 }
 

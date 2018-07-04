@@ -13,15 +13,25 @@ class FiberGraph {
 	}
 
 	init(container,options){
-
+		
+		// 初始化数据中心
 		this.dataCenter = new DataCenter(options);
-
-		this.dataCenter.initData()
-
+	   
+		// 初始化视图中心
 		this.view = new View(container, this.dataCenter);
 
 		this.view.initArea();
-
+		
+        // 初始化事件中心
+		this.handler = new Handler(container,this.dataCenter,this.view);
+	}
+	
+	/**
+	 * 加载数据
+	 * @param {} data 
+	 */
+	loadData(data) {
+		this.dataCenter.loadData(data);
 		this.view.render();
 	}
 }

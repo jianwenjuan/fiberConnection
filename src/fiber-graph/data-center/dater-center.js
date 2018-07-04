@@ -14,11 +14,14 @@ class DataCenter{
 
 
 	}
-
-	initData(){
-
-		if (this.options.boards && this.options.boards.length) {
-			const boards = this.options.boards;
+	
+	/**
+	 * 加载数据
+	 * @param {*} data 
+	 */
+	loadData(data){
+		if (data.boards && data.boards.length) {
+			const boards = data.boards;
 			for (let i = 0; i < boards.length; i++) {
 
 				const styleObj = new Style('board',boards[i].name);
@@ -31,8 +34,8 @@ class DataCenter{
 
 		}
 
-		if (this.options.links && this.options.links.length) {
-			const links = this.options.links;
+		if (data.links && data.links.length) {
+			const links = data.links;
 			for (let j = 0; j < links.length; j++) {
 				const styleObj = new Style('link',links[j].name);
 				const style = styleObj.getStyle();
