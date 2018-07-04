@@ -39,10 +39,8 @@ class View{
 
 	render() {
 		const links  = this.dataCenter.links;
-
 		if (links.length > 0) {
 			links.forEach((item)=>{
-
 					item.render(
 					{
 						context: this.areas['static'].context
@@ -58,7 +56,8 @@ class View{
 			boards.forEach((item)=>{
 
 				item.render(
-					{
+					{ 
+						transform: this.transform,
 						context: this.areas['static'].context
 					}
 				)

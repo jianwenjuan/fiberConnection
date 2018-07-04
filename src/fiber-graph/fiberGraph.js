@@ -24,6 +24,7 @@ class FiberGraph {
 		
         // 初始化事件中心
 		this.handler = new Handler(container,this.dataCenter,this.view);
+		this.handler.init();
 	}
 	
 	/**
