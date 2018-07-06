@@ -1,4 +1,4 @@
-import d3 from 'd3';
+import * as d3 from 'd3';
 
 
 class View{
@@ -56,7 +56,7 @@ class View{
 			boards.forEach((item)=>{
 
 				item.render(
-					{ 
+					{
 						transform: this.transform,
 						context: this.areas['static'].context
 					}

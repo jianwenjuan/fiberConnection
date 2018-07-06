@@ -1,5 +1,5 @@
 
-import d3 from 'd3';
+import * as d3 from 'd3';
 
 class Handler{
 	constructor(container,datacenter,view){
@@ -32,7 +32,7 @@ class Handler{
 			console.log(this.view.transform);
 		}));
 
-		
+
 
 
 
