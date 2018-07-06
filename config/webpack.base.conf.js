@@ -26,7 +26,7 @@ module.exports = {
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
       use: isProduction()
-        ? ['babel-loader']
+        ? ['ng-annotate-loader', 'babel-loader']
         : ['ng-annotate-loader', 'babel-loader', 'eslint-loader'],
     },
     {
