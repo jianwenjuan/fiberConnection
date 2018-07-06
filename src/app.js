@@ -8,13 +8,11 @@ import appRouter from './config/app.router';
 import './assets/css/main.less';
 import style from './app.less';
 
-let appComponent = {
+const appComponent = {
     restrict: 'E',
     template: require('./app.html'),
     controller: function () {
         this.class = style;
-
-
     },
     controllerAs: 'app'
 };

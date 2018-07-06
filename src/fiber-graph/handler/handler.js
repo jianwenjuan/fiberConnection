@@ -21,7 +21,7 @@ class Handler{
 		});
 
         // 设置缩放范围
-		const zoom = d3.behavior.zoom()
+		const zoom = d3.zoom()
 					.scaleExtent([1, 4]);
 
 		canvas.call(zoom.on('zoom', () => {

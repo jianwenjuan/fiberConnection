@@ -1,5 +1,5 @@
 
-import fiberConnection from './fiber-connection.directive.js';
+import fiberConnection from './fiber-connection.directive';
 
 
 export default angular.module('fiber', [])

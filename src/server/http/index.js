@@ -1,8 +1,5 @@
-/**
- * Created by ji.wenjiang on 2017/4/21.
- */
-
 class http {
+    /**@ngInject */
     constructor($http) {
         this.$http = $http;
         this.options = {
@@ -13,7 +10,7 @@ class http {
         }
     }
     get(data, url, cb) {
-        let gets = {method: 'GET', params: data, url: url}
+        let gets = { method: 'GET', params: data, url: url }
         Object.assign(gets, this.options)
         console.log(gets)
         this.$http(gets).then(function (data) {
@@ -23,15 +20,13 @@ class http {
     }
 
     post(data, url, cb) {
-        let posts = {method: 'POST', data: data, url: url}
+        let posts = { method: 'POST', data: data, url: url }
         Object.assign(posts, this.options)
         this.$http(posts).then(function (data) {
             cb(data)
         })
     }
 }
-
-http.$inject = ['$http'];
 
 export default angular.module('http', [])
     .service('http', http)

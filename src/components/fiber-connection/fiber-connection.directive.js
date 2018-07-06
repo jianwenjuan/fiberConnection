@@ -1,7 +1,7 @@
 import fiberConnectionTpl from './fiber-connection.tpl.html';
-import fiberConnectionCtrl from './fiber-connection.controller.js';
+import fiberConnectionCtrl from './fiber-connection.controller';
 
-import FiberGraph from '../../fiber-graph/fiberGraph.js';
+import FiberGraph from '../../fiber-graph/fiberGraph';
 
 
 const fiberConnectionDirective = () => {
