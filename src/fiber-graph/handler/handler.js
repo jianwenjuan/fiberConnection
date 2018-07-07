@@ -17,7 +17,7 @@ class Handler{
 		const canvas = this.view.areas['static'].canvas;
 
 		canvas.on('click', ()=>{
-			alert('1');
+			console.log('1');
 		});
 
         // 设置缩放范围

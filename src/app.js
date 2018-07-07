@@ -4,6 +4,7 @@ import uiRouter from 'angular-ui-router';
 import components from './components';
 // import services from './server'
 // import commonComponents from './commonComponents';
+// import 'bootstrap/dist/css/bootstrap.css'
 import appRouter from './config/app.router';
 import './assets/css/main.less';
 import style from './app.less';
