@@ -1,7 +1,7 @@
 import fiberConnectionTpl from './fiber-connection.tpl.html';
-import fiberConnectionCtrl from './fiber-connection.controller.js';
+import fiberConnectionCtrl from './fiber-connection.controller';
 
-import FiberGraph from '../../fiber-graph/fiberGraph.js';
+import FiberGraph from '../../fiber-graph/fiberGraph';
 
 
 const fiberConnectionDirective = () => {
@@ -9,14 +9,14 @@ const fiberConnectionDirective = () => {
 		restrict:'AE',
 		template: fiberConnectionTpl,
 		controller: fiberConnectionCtrl,
-		link:($scope)=>{
+		link:()=>{
 
 			const fiberGraph = new FiberGraph();
 			const container = 'fiber-container';
 
 			const data = {
 				boards:[
-					{   
+					{
 						id:1,
 						x:50,
 						y:50,
@@ -37,7 +37,7 @@ const fiberConnectionDirective = () => {
 						shape:'rhomb',
 						name:'wer'
 					},
-					
+
 					{
 						id:8,
 						x:200,
@@ -45,7 +45,7 @@ const fiberConnectionDirective = () => {
 						shape:'triangle',
 						name:'wer'
 					},
-					
+
 					{
 						id:4,
 						x:300,
@@ -53,7 +53,7 @@ const fiberConnectionDirective = () => {
 						shape:'rect',
 						name:'wer'
 					},
-					
+
 					{
 						id:5,
 						x:600,
@@ -61,7 +61,7 @@ const fiberConnectionDirective = () => {
 						shape:'triangle',
 						name:'wer'
 					},
-					
+
 					{
 						id:6,
 						x:176,
@@ -69,7 +69,7 @@ const fiberConnectionDirective = () => {
 						shape:'rect',
 						name:'wer'
 					},
-					
+
 					{
 						id:7,
 						x:458,
@@ -122,7 +122,7 @@ const fiberConnectionDirective = () => {
 
 				]
 			}
-			
+
 
 			fiberGraph.init(container,{});
 

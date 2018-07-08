@@ -1,8 +1,13 @@
-routing.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 
+/**@ngInject */
 export default function routing($stateProvider, $locationProvider, $urlRouterProvider) {
-    $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/login');
+    $locationProvider.html5Mode({
+        enable:true,
+        requireBase:false}
+    );
+    $locationProvider.hashPrefix('');
+
+    $urlRouterProvider.otherwise('/fiber');
     $stateProvider
         .state('login', {
             url: '/login',

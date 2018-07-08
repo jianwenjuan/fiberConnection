@@ -1,5 +1,5 @@
 
-import d3 from 'd3';
+import * as d3 from 'd3';
 
 class Handler{
 	constructor(container,datacenter,view){
@@ -17,11 +17,11 @@ class Handler{
 		const canvas = this.view.areas['static'].canvas;
 
 		canvas.on('click', ()=>{
-			alert('1');
+			console.log('1');
 		});
 
         // 设置缩放范围
-		const zoom = d3.behavior.zoom()
+		const zoom = d3.zoom()
 					.scaleExtent([1, 4]);
 
 		canvas.call(zoom.on('zoom', () => {
@@ -32,7 +32,7 @@ class Handler{
 			console.log(this.view.transform);
 		}));
 
-		
+
 
 
 
