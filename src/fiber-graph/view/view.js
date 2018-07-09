@@ -18,13 +18,13 @@ class View{
 
 
 	addCanvas(name, w, h){
-		const width = w || document.getElementById(this.container).clientWidth;
-		const height = h || document.getElementById(this.container).clientHeight;
+		this.width = w || document.getElementById(this.container).clientWidth;
+		this.height = h || document.getElementById(this.container).clientHeight;
 
 		const canvas = d3.select(`#${this.container}`).append('canvas')
 		.attr('name',name)
-		.attr('width',width)
-		.attr('height',height);
+		.attr('width',this.width)
+		.attr('height',this.height);
 
 		if (!this.areas[name]) {
 			this.areas[name] = {
@@ -38,11 +38,19 @@ class View{
 
 
 	render() {
+		this.clearRect();
+		if (this.transform) {
+		this.areas['static'].context.translate(this.transform.x,this.transform.y);
+		this.areas['static'].context.scale(this.transform.k,this.transform.k);
+		}
+        
+        this.areas['static'].context.save();
 		const links  = this.dataCenter.links;
 		if (links.length > 0) {
 			links.forEach((item)=>{
 					item.render(
-					{
+					{   
+						transform: this.transform,
 						context: this.areas['static'].context
 					}
 				)
@@ -54,7 +62,6 @@ class View{
 
 		if (boards.length > 0) {
 			boards.forEach((item)=>{
-
 				item.render(
 					{
 						transform: this.transform,
@@ -63,6 +70,38 @@ class View{
 				)
 			});
 		}
+
+		this.areas['static'].context.restore();
+	}
+
+	clearRect() {
+		this.areas['static'].context.clearRect(0,0,this.width,this.height);
+
+	}
+
+	refresh(reset){
+		const self = this;
+		const canvas = this.areas['static'].canvas;
+		this.context = this.areas['static'].context;
+
+		this.screnWidth = canvas.node().clientWidth || this.width;
+		this.screenHeight = canvas.node().clientHeight || this.height;
+
+		if (reset) {
+			this.transform = d3.zoomIdentity;
+
+			canvas.property('zoom',d3.zoomIdentity);
+
+			canvas.call(()=>{
+				self.render();
+			});
+		} else {
+			canvas.call(()=>{
+				self.render();
+			});
+
+		}
+
 	}
 }
 

@@ -14,6 +14,7 @@ class Handler{
 	}
 
 	bindEvent() {
+		const ts = this;
 		const canvas = this.view.areas['static'].canvas;
 
 		canvas.on('click', ()=>{
@@ -25,10 +26,8 @@ class Handler{
 					.scaleExtent([1, 4]);
 
 		canvas.call(zoom.on('zoom', () => {
-			this.view.transform = {
-				translate: d3.event.translate,
-				scale:d3.event.scale
-			};
+			ts.view.transform = d3.event.transform;
+			ts.view.refresh();
 			console.log(this.view.transform);
 		}));
 

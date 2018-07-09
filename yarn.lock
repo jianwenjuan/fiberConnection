@@ -6812,6 +6812,10 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
+yarn@^1.7.0:
+  version "1.7.0"
+  resolved "http://registry.npm.taobao.org/yarn/download/yarn-1.7.0.tgz#0076b9fde6010e01950526a609bc53bc175ef925"
+
 yeast@0.1.2:
   version "0.1.2"
   resolved "http://registry.npm.taobao.org/yeast/download/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"

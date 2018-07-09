@@ -16,8 +16,9 @@ class Line{
 	}
 
 
-	render(options,link){
-		const ctx =  options.context;
+	render(option,link){
+		const ctx =  option.context;
+		
 		this.transPoint(link);
 
 		ctx.lineWidth = this.lineWidth;

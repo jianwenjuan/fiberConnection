@@ -33,7 +33,7 @@ class FiberGraph {
 	 */
 	loadData(data) {
 		this.dataCenter.loadData(data);
-		this.view.render();
+		this.view.refresh(true);
 	}
 }
 
