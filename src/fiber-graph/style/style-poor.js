@@ -20,8 +20,6 @@ class Style {
 		}
 
 		return style;
-
-
 	}
 
 	stylePoor(){

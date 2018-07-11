@@ -31,6 +31,19 @@ class Handler{
 			console.log(this.view.transform);
 		}));
 
+		// 拖拽
+		canvas.call(d3.drag().subject(()=>{
+
+		}).on('start', ()=>{
+
+		}).on('drag',()=>{
+
+		}).on('end',()=>{
+
+		}).on('start.reDraw drag.reDraw end.reDraw',()=>{
+
+		}));
+
 
 
 
