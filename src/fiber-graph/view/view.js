@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 
 
-class View{
-	constructor(container,dataCenter){
+class View {
+	constructor(container, dataCenter) {
 
 		this.container = container;
 		this.dataCenter = dataCenter || {};
@@ -11,26 +11,26 @@ class View{
 
 	}
 
-	initArea(){
+	initArea() {
 
 		this.addCanvas('static');
 	}
 
 
-	addCanvas(name, w, h){
+	addCanvas(name, w, h) {
 		this.width = w || document.getElementById(this.container).clientWidth;
 		this.height = h || document.getElementById(this.container).clientHeight;
 
 		const canvas = d3.select(`#${this.container}`).append('canvas')
-		.attr('name',name)
-		.attr('width',this.width)
-		.attr('height',this.height);
+			.attr('name', name)
+			.attr('width', this.width)
+			.attr('height', this.height);
 
 		if (!this.areas[name]) {
 			this.areas[name] = {
-				'name':name,
-				'canvas':canvas,
-				'context':canvas.node().getContext('2d')
+				'name': name,
+				'canvas': canvas,
+				'context': canvas.node().getContext('2d')
 			}
 		}
 
@@ -38,18 +38,18 @@ class View{
 
 
 	render() {
+		this.context = this.areas['static'].context;
 		this.clearRect();
+		this.context.save();
 		if (this.transform) {
-		this.areas['static'].context.translate(this.transform.x,this.transform.y);
-		this.areas['static'].context.scale(this.transform.k,this.transform.k);
+			this.context.translate(this.transform.x, this.transform.y);
+			this.context.scale(this.transform.k, this.transform.k);
 		}
-        
-        this.areas['static'].context.save();
-		const links  = this.dataCenter.links;
+		const links = this.dataCenter.links;
 		if (links.length > 0) {
-			links.forEach((item)=>{
-					item.render(
-					{   
+			links.forEach((item) => {
+				item.render(
+					{
 						transform: this.transform,
 						context: this.areas['static'].context
 					}
@@ -61,7 +61,7 @@ class View{
 		const boards = this.dataCenter.boards;
 
 		if (boards.length > 0) {
-			boards.forEach((item)=>{
+			boards.forEach((item) => {
 				item.render(
 					{
 						transform: this.transform,
@@ -71,15 +71,15 @@ class View{
 			});
 		}
 
-		this.areas['static'].context.restore();
+		this.context.restore();
 	}
 
 	clearRect() {
-		this.areas['static'].context.clearRect(0,0,this.width,this.height);
+		this.areas['static'].context.clearRect(0, 0, this.width, this.height);
 
 	}
 
-	refresh(reset){
+	refresh(reset) {
 		const self = this;
 		const canvas = this.areas['static'].canvas;
 		this.context = this.areas['static'].context;
@@ -90,13 +90,13 @@ class View{
 		if (reset) {
 			this.transform = d3.zoomIdentity;
 
-			canvas.property('zoom',d3.zoomIdentity);
+			canvas.property('zoom', d3.zoomIdentity);
 
-			canvas.call(()=>{
+			canvas.call(() => {
 				self.render();
 			});
 		} else {
-			canvas.call(()=>{
+			canvas.call(() => {
 				self.render();
 			});
 
