@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import Util from '../utils/util';
 
 
 class View {
@@ -89,7 +90,6 @@ class View {
 
 		if (reset) {
 			this.transform = d3.zoomIdentity;
-
 			canvas.property('zoom', d3.zoomIdentity);
 
 			canvas.call(() => {
@@ -102,6 +102,29 @@ class View {
 
 		}
 
+	}
+
+
+	dragSubject() {
+		const x = this.transform.invertX(d3.event.x);
+		const y = this.transform.invertY(d3.event.y);
+
+		for(let i = this.dataCenter.boards.length-1; i > 0; i--) {
+			const board = this.dataCenter.boards[i];
+			if(Util.pointInPolygon(x,y,board.shape.getRect())){
+				console.log(board);
+				return board;
+			}
+
+		}
+
+		return null;
+
+	}
+
+	dragged() {
+		d3.event.subject.x += d3.event.dx/this.transform.k;
+		d3.event.subject.y += d3.event.dy/this.transform.k;
 	}
 }
 
