@@ -10,14 +10,23 @@ class View {
 
 		this.areas = [];
 
+		this.selectList = [];
+
 	}
 
+	/**
+	 * 初始化绘制画布
+	 */
 	initArea() {
-
 		this.addCanvas('static');
 	}
 
-
+    /**
+	 * 添加画布
+	 * @param {*} name 
+	 * @param {*} w 
+	 * @param {*} h 
+	 */
 	addCanvas(name, w, h) {
 		this.width = w || document.getElementById(this.container).clientWidth;
 		this.height = h || document.getElementById(this.container).clientHeight;
@@ -37,11 +46,40 @@ class View {
 
 	}
 
+	/**
+	 * 最佳视图
+	 */
 
+	fitViewInarea() {
+		const bounds = Util.calGeoBoundofNodeArr(this.dataCenter.boards);
+		const boundsW = bounds.maxx - bounds.minx;
+		const boundsH = bounds.maxy - bounds.miny;
+
+		const center = {
+			X: bounds.minx + boundsW / 2,
+			Y: bounds.miny + boundsH / 2
+		}
+
+		const dx = (this.width / 2) - center.X;
+		const dy = (this.height / 2) - center.Y;
+
+		this.transform = d3.zoomIdentity;
+
+		this.transform = this.transform.translate(dx,dy);
+
+		this.areas['static'].canvas.property('_zoom',this.transform);
+
+
+		this.render();
+	}
+
+    /**
+	 * 绘制
+	 */
 	render() {
 		this.context = this.areas['static'].context;
-		this.clearRect();
 		this.context.save();
+		this.context.clearRect(0, 0, this.width, this.height);
 		if (this.transform) {
 			this.context.translate(this.transform.x, this.transform.y);
 			this.context.scale(this.transform.k, this.transform.k);
@@ -75,11 +113,11 @@ class View {
 		this.context.restore();
 	}
 
-	clearRect() {
-		this.areas['static'].context.clearRect(0, 0, this.width, this.height);
 
-	}
-
+	/**
+	 * 重置
+	 * @param {} reset 
+	 */
 	refresh(reset) {
 		const self = this;
 		const canvas = this.areas['static'].canvas;
@@ -104,14 +142,16 @@ class View {
 
 	}
 
-
+    /**
+	 * 获取拖拽的board
+	 */
 	dragSubject() {
 		const x = this.transform.invertX(d3.event.x);
 		const y = this.transform.invertY(d3.event.y);
 
-		for(let i = this.dataCenter.boards.length-1; i > 0; i--) {
+		for (let i = this.dataCenter.boards.length - 1; i > 0; i--) {
 			const board = this.dataCenter.boards[i];
-			if(Util.pointInPolygon(x,y,board.shape.getRect())){
+			if (Util.pointInPolygon(x, y, board.shape.getRect())) {
 				console.log(board);
 				return board;
 			}
@@ -122,9 +162,16 @@ class View {
 
 	}
 
+
+	/**
+	 * 拖拽
+	 */
 	dragged() {
-		d3.event.subject.x += d3.event.dx/this.transform.k;
-		d3.event.subject.y += d3.event.dy/this.transform.k;
+		d3.event.subject.x += d3.event.dx / this.transform.k;
+		d3.event.subject.y += d3.event.dy / this.transform.k;
+
+
+		console.log(d3.event.subject);
 	}
 }
 

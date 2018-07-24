@@ -33,7 +33,7 @@ class FiberGraph {
 	 */
 	loadData(data) {
 		this.dataCenter.loadData(data);
-		this.view.refresh(true);
+		this.view.fitViewInarea();
 	}
 }
 

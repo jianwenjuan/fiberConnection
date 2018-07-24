@@ -1,5 +1,11 @@
 export default class Util {
 
+    /**
+     * 判断点是否在形状里
+     * @param {} x 
+     * @param {*} y 
+     * @param {*} poly 
+     */
     static pointInPolygon(x, y, poly) {
 
         let inside = false;
@@ -13,6 +19,44 @@ export default class Util {
         }
 
         return inside;
+
+    }
+
+
+    /**
+     * 计算边界
+     */
+
+    static calGeoBoundofNodeArr(boards) {
+        let maxx = boards[0].x,
+            minx = boards[0].x,
+            maxy = boards[0].y,
+            miny = boards[0].y;
+
+        for (let i = 0; i < boards.length; i++) {
+            if (boards[i].x > maxx) {
+                maxx = boards[i].x;
+            }
+
+            if (boards[i].x < minx) {
+                minx = boards[i].x;
+            }
+
+            if (boards[i].y > maxy) {
+                maxy = boards[i].y;
+            }
+
+            if (boards[i].y < miny) {
+                miny = boards[i].y;
+            }
+        }
+
+        return {
+            maxx,
+            maxy,
+            minx,
+            miny
+        }
 
     }
 

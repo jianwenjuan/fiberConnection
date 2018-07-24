@@ -1,5 +1,6 @@
 
 import * as d3 from 'd3';
+import Util from '../utils/util';
 
 class Handler {
 	constructor(container, datacenter, view) {
@@ -23,8 +24,6 @@ class Handler {
 
 		}).on('start', () => {
 			d3.event.sourceEvent.stopPropagation();
-			console.log('start');
-
 		}).on('drag', () => {
 			ts.view.dragged();
 
@@ -33,7 +32,8 @@ class Handler {
 		}));
 
 		canvas.on('click', () => {
-			console.log('1');
+			ts.actionSelect();
+
 		});
 
 		// 设置缩放范围
@@ -43,14 +43,27 @@ class Handler {
 		canvas.call(zoom.on('zoom', () => {
 			ts.view.transform = d3.event.transform;
 			ts.view.refresh();
-			console.log(this.view.transform);
-		})).on('dblclick.zoom',null);
+		})).on('dblclick.zoom', null);
 
-		
-
+	}
 
 
+	/**
+	 * 鼠标移入
+	 */
+	actionHover(x, y, type) {
+		if (type === 'board') {
+			for (let i = this.dataCenter.boards.length - 1; i > 0; i--) {
+				const board = this.dataCenter.boards[i];
+				if (Util.pointInPolygon(x, y, board.shape.getRect())) {
+					board.isHover = true;
+				}
+			}
+		}
+	}
 
+
+	actionSelect() {
 
 	}
 
